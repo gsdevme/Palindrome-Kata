@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+$filename = 'input.txt';
+
+$file = new SplFileObject(sprintf('%s/%s', __DIR__, $filename), 'r');
+$adapter = new \Gs\TestCase\FileAdapter($file);
+
+$sequenceService = new \Gs\SequenceSolver\SequenceService(new \Gs\PalindromeSolver(), new \Gs\ResultSet());
+$resultSet = $sequenceService->solve($adapter->getTestCases(), $adapter->getLimit());
+
+foreach ($resultSet as $result) {
+    printf('%s: %s%s',
+        $result['line'],
+        $result['result'] ? 'Y' : 'N',
+        PHP_EOL
+    );
+}
