@@ -6,5 +6,7 @@ script: phpunit --coverage-clover=coverage.clover
 before_script:
   - phpenv config-rm xdebug.ini
 after_script:
+  - bin/behat
+  - bin/phpspec
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
