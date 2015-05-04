@@ -1,3 +1,19 @@
-Blank Projet
+Palindrome Kata
+=====
+
+Tests
 ```
-composer create-project gsdevme/project-template
+bin/behat
+bin/phpspec -f pretty
+```
+
+Web Application
+```
+cd ./src/app/web/
+php -S localhost:8080
+```
+
+Console Application
+```
+./src/app/console
+```
