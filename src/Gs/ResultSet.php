@@ -13,11 +13,17 @@ class ResultSet implements \IteratorAggregate, ResultSetInterface
         $this->result = [];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function add($line, $result)
     {
         array_push($this->result, ['line' => $line, 'result' => $result]);
     }
 
+    /**
+     * @return \ArrayIterator|\Traversable
+     */
     public function getIterator()
     {
         return new \ArrayIterator($this->result);

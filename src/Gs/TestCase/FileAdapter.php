@@ -8,6 +8,9 @@ class FileAdapter implements TestCaseAdapterInterface
 {
     private $file;
 
+    /**
+     * @param \SplFileObject $file
+     */
     public function __construct(\SplFileObject $file)
     {
         $this->file = $file;
@@ -30,6 +33,9 @@ class FileAdapter implements TestCaseAdapterInterface
         return $cases;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getLimit()
     {
         $this->file->fseek(0);
